@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fb_1790504911756",
+    "timestamp": "2026-09-27T10:28:31.756Z",
+    "cin": "U67100PB2021PTC053453",
+    "professionalText": "Last year figures are pre-filleed, ypou just need to fetch figures for 2025-26 in actual Rs and prefill",
+    "category": "Figure Correction",
+    "status": "noted",
+    "actionSummary": "Feedback logged & reviewed by autonomous adaptation engine. Mapping state verified for U67100PB2021PTC053453.",
+    "affectedFields": [],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  },
+  {
+    "id": "fb_1790503193227",
+    "timestamp": "2026-09-27T09:59:53.227Z",
+    "cin": "U67100PB2021PTC053453",
+    "professionalText": "none of the code is working can tou check",
+    "category": "Figure Correction",
+    "status": "noted",
+    "actionSummary": "Feedback logged & reviewed by autonomous adaptation engine. Mapping state verified for U67100PB2021PTC053453.",
+    "affectedFields": [],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  }
+]

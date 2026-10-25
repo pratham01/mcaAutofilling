@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AOC-4 Live Autofill Tool — Gurpreet Saluja Financial Services</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 30px;
+      max-width: 950px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    h1 { color: #38bdf8; font-size: 24px; margin-top: 0; }
+    h2 { color: #94a3b8; font-size: 18px; margin-top: 0; }
+    .btn {
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-all { background: #0284c7; }
+    .btn-parta { background: #6366f1; }
+    .btn-partb { background: #059669; }
+    .btn-partc { background: #d97706; }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+    .step-num {
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .alert-box {
+      background: rgba(14, 165, 233, 0.1);
+      border-left: 4px solid #38bdf8;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .toast {
+      display: none;
+      background: #10b981;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      animation: fadeIn 0.2s;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; color: #cbd5e1; }
+    th { background: #0f172a; padding: 10px 8px; text-align: left; border-bottom: 2px solid #334155; }
+    td { padding: 8px; border-bottom: 1px solid #334155; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+  </style>
+</head>
+<body>
+  <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+      <h1>⚡ MCA Form AOC-4 Live Autofill Tool</h1>
+      <p style="color: #94a3b8; margin: 4px 0 20px 0;">
+        Company: <strong style="color: #f8fafc;" id="hdr-company-name">Active Client Workspace</strong><br>
+        CIN: <code style="background: #334155; padding: 2px 6px; border-radius: 4px; color: #38bdf8;" id="hdr-cin">ENTER_CIN_HERE</code> | FY: <strong>2025–26</strong>
+      </p>
+    </div>
+    <span id="toast" class="toast">✓ Copied to clipboard!</span>
+  </div>
+
+  <div class="card">
+    <h2>1-Click Injection Buttons</h2>
+    <p style="color: #94a3b8; font-size: 14px; margin-top: 4px;">
+      Click any button below to copy the verified code, then paste into your Chrome Developer Tools Console (<code>F12</code> &rarr; <strong>Console</strong> &rarr; <code>Enter</code>).
+    </p>
+
+    <div class="btn-group">
+      <button class="btn btn-all" onclick="copyCode('all')">🚀 Copy Complete Autofill Script (All Sections)</button>
+      <button class="btn btn-parta" onclick="copyCode('partA')">📋 Copy Section 1 (Part A Dates & Info)</button>
+      <button class="btn btn-partb" onclick="copyCode('partB')">📋 Copy Section 2 (Part B Balance Sheet)</button>
+      <button class="btn btn-partc" onclick="copyCode('partC')">📋 Copy Section 3 (Part C Profit & Loss)</button>
+    </div>
+
+    <div class="alert-box">
+      <strong>Important Filing Sequence:</strong> MCA V3 requires consecutive saving!
+      <ol style="margin: 6px 0 0 18px; padding: 0;">
+        <li>After Section 1 is populated, click <strong>Save</strong> &rarr; This generates the <strong>Draft SRN</strong> under <em>"My Applications — Pending for Action"</em>.</li>
+        <li>Advance to <strong>Part B (Balance Sheet)</strong> &rarr; Populate & click <strong>Save</strong>.</li>
+        <li>Advance to <strong>Part C (Profit & Loss)</strong> &rarr; Populate & click <strong>Save</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Step-by-Step Procedure in Chrome</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <strong>Open Form AOC-4 in Chrome:</strong><br>
+        In your desktop Chrome browser, go to <a href="https://www.mca.gov.in" target="_blank" style="color: #38bdf8;">mca.gov.in</a> &rarr; Log in &rarr; Go to <strong>MCA Services &rarr; Company e-Filing &rarr; Approval Services &rarr; Form AOC-4</strong>.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <strong>Enter CIN & Pre-fill:</strong><br>
+        Enter your company's CIN and click <strong>Pre-fill</strong>. Company name and registered address will load.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <strong>Open Console (F12):</strong><br>
+        Press <kbd style="background: #334155; padding: 2px 6px; border-radius: 4px;">F12</kbd> (or right-click anywhere on the page &rarr; select <em>Inspect</em>), then click on the <strong>Console</strong> tab.
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <strong>Paste & Run:</strong><br>
+        Click <strong style="color: #38bdf8;">"Copy Complete Autofill Script"</strong> above, paste it into the Console prompt, and press <kbd style="background: #334155; padding: 2px 6px; border-radius: 4px;">Enter</kbd>.<br>
+        <em>You will see live confirmation messages logging every field as it is populated on your screen!</em>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <strong>Review & Save Consecutively:</strong><br>
+        Click <strong>Save</strong> on Section 1 &rarr; Confirm draft created &rarr; Save Balance Sheet &rarr; Save P&L.<br>
+        <span style="color: #ef4444; font-weight: bold;">STOP:</span> Do NOT click final Submit or attach DSC. Final human sign-off is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Audited Financial Values Being Filled</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Schedule</th>
+          <th>Field Description</th>
+          <th style="text-align: right;">Current Year (₹)</th>
+          <th style="text-align: right;">Previous Year (₹)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Part A</td><td>Number of Members</td><td style="text-align: right;">2</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part A</td><td>FY Period</td><td style="text-align: right;">01/04/2025 to 31/03/2026</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part A</td><td>Board Meeting Date</td><td style="text-align: right;">05/09/2026</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part A</td><td>Auditor Report Date</td><td style="text-align: right;">04/09/2026</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part A</td><td>AGM Date / Due Date</td><td style="text-align: right;">30/09/2026</td><td style="text-align: right;">30/09/2026</td></tr>
+        <tr><td>Part B</td><td>Share Capital</td><td style="text-align: right; color: #38bdf8;">1,00,000</td><td style="text-align: right;">1,00,000</td></tr>
+        <tr><td>Part B</td><td>Reserves & Surplus</td><td style="text-align: right; color: #ef4444;">-4,67,954</td><td style="text-align: right; color: #ef4444;">-7,46,390</td></tr>
+        <tr><td>Part B</td><td>Long-Term Borrowings</td><td style="text-align: right; color: #ef4444;">-2,93,431</td><td style="text-align: right;">14,06,684</td></tr>
+        <tr><td>Part B</td><td>Trade Payables (Others)</td><td style="text-align: right;">2,248</td><td style="text-align: right;">337</td></tr>
+        <tr><td>Part B</td><td>Other Current Liabilities</td><td style="text-align: right; color: #38bdf8;">17,00,000</td><td style="text-align: right;">0</td></tr>
+        <tr><td>Part B</td><td>Short-Term Provisions</td><td style="text-align: right;">4,29,462</td><td style="text-align: right;">3,46,137</td></tr>
+        <tr><td>Part B</td><td>PPE Tangible Assets</td><td style="text-align: right;">2,10,066</td><td style="text-align: right;">1,85,756</td></tr>
+        <tr><td>Part B</td><td>Deferred Tax Asset (Net)</td><td style="text-align: right;">224</td><td style="text-align: right;">0</td></tr>
+        <tr><td>Part B</td><td>Trade Receivables</td><td style="text-align: right; color: #38bdf8;">11,18,429</td><td style="text-align: right;">9,11,428</td></tr>
+        <tr><td>Part B</td><td>Cash & Cash Equivalents</td><td style="text-align: right;">76,657</td><td style="text-align: right;">5,244</td></tr>
+        <tr><td>Part B</td><td>Other Current Assets</td><td style="text-align: right;">64,949</td><td style="text-align: right;">9,898</td></tr>
+        <tr><td>Part C</td><td>Revenue from Operations (Sale of Services)</td><td style="text-align: right; color: #10b981;">56,52,494</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part C</td><td>Other Income</td><td style="text-align: right;">5,044</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part C</td><td>Employee Benefits Expense</td><td style="text-align: right;">39,19,184</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part C</td><td>Depreciation & Amortization</td><td style="text-align: right;">64,699</td><td style="text-align: right;">-</td></tr>
+        <tr><td>Part C</td><td>Other Expenses</td><td style="text-align: right;">10,15,084</td><td style="text-align: right;">-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const partAScript = `(() => {
+  console.log("%c🚀 Injecting Part A (General Info & Statutory Dates)...", "color: #38bdf8; font-weight: bold; font-size: 14px;");
+  const setVal = (sel, val, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) { console.warn("⚠️ " + lbl + " not found (" + sel + ")"); return false; }
+    try {
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+      if (setter) { setter.call(el, String(val)); } else { el.value = String(val); }
+      el.setAttribute('value', String(val));
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
+      if (window.$) { try { window.$(el).val(String(val)).trigger('input').trigger('change').trigger('blur'); } catch (e) {} }
+      console.log("✅ " + lbl + " = " + val);
+      return true;
+    } catch (e) { return false; }
+  };
+  const setRadio = (sel, checked, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) return false;
+    try {
+      el.checked = checked;
+      if (checked) el.setAttribute('checked', 'checked');
+      el.dispatchEvent(new Event('click', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      if (window.$) { try { window.$(el).prop('checked', checked).trigger('change').trigger('click'); } catch (e) {} }
+      console.log("✅ " + lbl);
+      return true;
+    } catch(e) { return false; }
+  };
+
+  let c = 0;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_478261092_copy-panel_252196987-guidetextbox_copy___widget', '01/04/2025', 'FY From Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_478261092_copy-panel_252196987-guidetextbox_copy_673278796___widget', '31/03/2026', 'FY To Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803-panel_478261092_copy_1688980105-guidetextbox_copy_co___widget', '05/09/2026', 'Board Meeting Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-guidedatepicker_423285079___widget', '04/09/2026', 'Auditor Report Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guidetextbox_copy_co_87220494___widget', '30/09/2026', 'AGM Actual Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guidedatepicker_copy_2069002018___widget', '30/09/2026', 'AGM Due Date')) c++;
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton___widget', true, 'AGM Held: Yes');
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton_cop___widget', true, 'Subsidiary: No');
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton_cop_662366887___widget', true, 'Has Sub/JV: No');
+
+  console.log("%c✅ Part A populated (" + c + " items)! Now click SAVE on Section 1.", "color: #10b981; font-weight: bold; font-size: 15px;");
+})();`;
+
+    const partBScript = `(() => {
+  console.log("%c🚀 Injecting Part B (Balance Sheet Schedules)...", "color: #38bdf8; font-weight: bold; font-size: 14px;");
+  const setVal = (sel, val, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) { console.warn("⚠️ " + lbl + " not found (" + sel + ")"); return false; }
+    try {
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+      if (setter) { setter.call(el, String(val)); } else { el.value = String(val); }
+      el.setAttribute('value', String(val));
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
+      if (window.$) { try { window.$(el).val(String(val)).trigger('input').trigger('change').trigger('blur'); } catch (e) {} }
+      console.log("✅ " + lbl + " = " + val);
+      return true;
+    } catch (e) { return false; }
+  };
+
+  const bs = [
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949299___widget', '100000', 'Share Capital (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949300___widget', '100000', 'Share Capital (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517445___widget', '-467954', 'Reserves & Surplus (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517446___widget', '-746390', 'Reserves & Surplus (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210419___widget', '-293431', 'Long Term Borrowings (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210420___widget', '1406684', 'Long Term Borrowings (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320436___widget', '2248', 'Trade Payables Others (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320437___widget', '337', 'Trade Payables Others (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867870853-tableItem1643867870856___widget', '1700000', 'Other Current Liabilities (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867878141-tableItem1643867878144___widget', '429462', 'Short Term Provisions (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054338___widget', '210066', 'PPE Tangible Assets (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054339___widget', '185756', 'PPE Tangible Assets (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869089142-tableItem1643869089145___widget', '224', 'Deferred Tax Asset (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691136___widget', '1118429', 'Trade Receivables (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691137___widget', '911428', 'Trade Receivables (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700100___widget', '76657', 'Cash & Cash Eq (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700101___widget', '5244', 'Cash & Cash Eq (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716979___widget', '64949', 'Other Current Assets (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716980___widget', '9898', 'Other Current Assets (Prev)']
+  ];
+  let c = 0;
+  for (const [sel, val, lbl] of bs) {
+    if (setVal(sel, val, lbl)) c++;
+  }
+  console.log("%c✅ Part B populated (" + c + " figures)! Click SAVE on Balance Sheet.", "color: #10b981; font-weight: bold; font-size: 15px;");
+})();`;
+
+    const partCScript = `(() => {
+  console.log("%c🚀 Injecting Part C (Profit & Loss Statement)...", "color: #38bdf8; font-weight: bold; font-size: 14px;");
+  const setVal = (sel, val, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) { console.warn("⚠️ " + lbl + " not found (" + sel + ")"); return false; }
+    try {
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+      if (setter) { setter.call(el, String(val)); } else { el.value = String(val); }
+      el.setAttribute('value', String(val));
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
+      if (window.$) { try { window.$(el).val(String(val)).trigger('input').trigger('change').trigger('blur'); } catch (e) {} }
+      console.log("✅ " + lbl + " = " + val);
+      return true;
+    } catch (e) { return false; }
+  };
+
+  const pnl = [
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644085541248-tableItem1644085541251___widget', '5652494', 'Revenue / Sale of Services'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644086710219-tableItem1644086710222___widget', '5044', 'Other Income'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644088984591-tableItem1644088984594___widget', '3919184', 'Employee Benefit Expenses'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089025195-tableItem1644089025199___widget', '64699', 'Depreciation Expense'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089032938-tableItem1644089032941___widget', '1015084', 'Other Expenses']
+  ];
+  let c = 0;
+  for (const [sel, val, lbl] of pnl) {
+    if (setVal(sel, val, lbl)) c++;
+  }
+  console.log("%c✅ Part C populated (" + c + " figures)! Click SAVE on Profit & Loss.", "color: #10b981; font-weight: bold; font-size: 15px;");
+})();`;
+
+    const allInOneScript = `(() => {
+  console.log("%c🚀 Executing Complete AOC-4 Autofill...", "color: #38bdf8; font-weight: bold; font-size: 16px;");
+  
+  const setVal = (sel, val, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) return false;
+    try {
+      el.scrollIntoView({ behavior: 'instant', block: 'center' });
+      const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+      if (setter) { setter.call(el, String(val)); } else { el.value = String(val); }
+      el.setAttribute('value', String(val));
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
+      if (window.$) { try { window.$(el).val(String(val)).trigger('input').trigger('change').trigger('blur'); } catch (e) {} }
+      console.log("✅ " + lbl + " = " + val);
+      return true;
+    } catch (e) { return false; }
+  };
+  const setRadio = (sel, checked, lbl) => {
+    const el = document.querySelector(sel);
+    if (!el) return false;
+    try {
+      el.checked = checked;
+      if (checked) el.setAttribute('checked', 'checked');
+      el.dispatchEvent(new Event('click', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      if (window.$) { try { window.$(el).prop('checked', checked).trigger('change').trigger('click'); } catch (e) {} }
+      console.log("✅ " + lbl);
+      return true;
+    } catch(e) { return false; }
+  };
+
+  let c = 0;
+  // Part A
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_478261092_copy-panel_252196987-guidetextbox_copy___widget', '01/04/2025', 'FY From Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_478261092_copy-panel_252196987-guidetextbox_copy_673278796___widget', '31/03/2026', 'FY To Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803-panel_478261092_copy_1688980105-guidetextbox_copy_co___widget', '05/09/2026', 'Board Meeting Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-guidedatepicker_423285079___widget', '04/09/2026', 'Auditor Report Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guidetextbox_copy_co_87220494___widget', '30/09/2026', 'AGM Actual Date')) c++;
+  if (setVal('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guidedatepicker_copy_2069002018___widget', '30/09/2026', 'AGM Due Date')) c++;
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton___widget', true, 'AGM Held: Yes');
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton_cop___widget', true, 'Subsidiary: No');
+  setRadio('#guideContainer-rootPanel-panel-panel-panel1AOC4-panel_2074267803_cop_606137638-panel_478261092_copy-guideradiobutton_cop_662366887___widget', true, 'Has Sub/JV: No');
+
+  // Part B
+  const bs = [
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949299___widget', '100000', 'Share Capital (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949300___widget', '100000', 'Share Capital (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517445___widget', '-467954', 'Reserves & Surplus (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517446___widget', '-746390', 'Reserves & Surplus (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210419___widget', '-293431', 'Long Term Borrowings (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210420___widget', '1406684', 'Long Term Borrowings (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320436___widget', '2248', 'Trade Payables Others (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320437___widget', '337', 'Trade Payables Others (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867870853-tableItem1643867870856___widget', '1700000', 'Other Current Liabilities (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867878141-tableItem1643867878144___widget', '429462', 'Short Term Provisions (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054338___widget', '210066', 'PPE Tangible Assets (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054339___widget', '185756', 'PPE Tangible Assets (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869089142-tableItem1643869089145___widget', '224', 'Deferred Tax Asset (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691136___widget', '1118429', 'Trade Receivables (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691137___widget', '911428', 'Trade Receivables (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700100___widget', '76657', 'Cash & Cash Eq (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700101___widget', '5244', 'Cash & Cash Eq (Prev)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716979___widget', '64949', 'Other Current Assets (Current)'],
+    ['#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716980___widget', '9898', 'Other Current Assets (Prev)']
+  ];
+  for (const [sel, val, lbl] of bs) {
+    if (setVal(sel, val, lbl)) c++;
+  }
+
+  // Part C
+  const pnl = [
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644085541248-tableItem1644085541251___widget', '5652494', 'Revenue / Sale of Services'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644086710219-tableItem1644086710222___widget', '5044', 'Other Income'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644088984591-tableItem1644088984594___widget', '3919184', 'Employee Benefit Expenses'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089025195-tableItem1644089025199___widget', '64699', 'Depreciation Expense'],
+    ['#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089032938-tableItem1644089032941___widget', '1015084', 'Other Expenses']
+  ];
+  for (const [sel, val, lbl] of pnl) {
+    if (setVal(sel, val, lbl)) c++;
+  }
+
+  // Create UI Toast on page
+  const banner = document.createElement('div');
+  banner.style = "position: fixed; top: 15px; right: 15px; z-index: 999999; background: #059669; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); font-family: sans-serif; font-weight: bold; font-size: 15px;";
+  banner.innerHTML = "✅ AOC-4 Populated with " + c + " Audited Values!<br><span style='font-size: 12px; font-weight: normal;'>Please review and click Save on Section 1 to generate Draft SRN.</span>";
+  document.body.appendChild(banner);
+  setTimeout(() => banner.remove(), 10000);
+
+  console.log("%c🎉 Successfully injected " + c + " statutory values into AOC-4!", "color: #10b981; font-size: 18px; font-weight: bold;");
+})();`;
+
+    function copyCode(type) {
+      let code = allInOneScript;
+      let label = 'All Sections';
+      if (type === 'partA') { code = partAScript; label = 'Section 1 (Part A)'; }
+      if (type === 'partB') { code = partBScript; label = 'Section 2 (Balance Sheet)'; }
+      if (type === 'partC') { code = partCScript; label = 'Section 3 (Profit & Loss)'; }
+
+      navigator.clipboard.writeText(code).then(() => {
+        const toast = document.getElementById('toast');
+        toast.innerText = '✓ Copied ' + label + ' to clipboard!';
+        toast.style.display = 'inline';
+        setTimeout(() => toast.style.display = 'none', 3000);
+      });
+    }
+  </script>
+</body>
+</html>

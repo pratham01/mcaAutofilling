@@ -1,0 +1,180 @@
+{
+  "id": "aoc4_blank_template",
+  "name": "MCA AOC-4 Blank Statutory Template (Clean Slate)",
+  "formType": "AOC-4",
+  "applicableTo": "New Client / Unmapped Entity",
+  "accountingStandard": "Indian GAAP (Schedule III)",
+  "version": "1.0",
+  "description": "Blank template pre-configured with all 18 MCA AEM widget selectors. Enter or import numbers for instant filing.",
+  "isDefault": false,
+  "createdAt": "2026-09-27T04:20:20.700Z",
+  "updatedAt": "2026-09-27T04:20:20.700Z",
+  "mappingState": {
+    "companyInfo": {
+      "cin": "",
+      "companyName": "",
+      "address": "",
+      "email": "",
+      "numberOfMembers": "2",
+      "financialYearFrom": "01/04/2025",
+      "financialYearTo": "31/03/2026",
+      "boardMeetingDate": "",
+      "agmHeld": "Yes",
+      "agmDate": "",
+      "auditor": {
+        "name": "",
+        "pan": "",
+        "membershipNo": "",
+        "frn": ""
+      }
+    },
+    "partB_balanceSheet": [
+      {
+        "id": "bs_share_capital",
+        "label": "1. (a) Share Capital",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949299___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643805949296-tableItem1643805949300___widget"
+      },
+      {
+        "id": "bs_reserves_surplus",
+        "label": "1. (b) Reserves and Surplus (Profit & Loss A/c)",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517445___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643810517442-tableItem1643810517446___widget"
+      },
+      {
+        "id": "bs_long_term_borrowings",
+        "label": "3. (a) Long-Term Borrowings",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210419___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811210415-tableItem1643811210420___widget"
+      },
+      {
+        "id": "bs_deferred_tax_liabilities",
+        "label": "3. (b) Deferred Tax Liabilities (Net)",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811214000-tableItem1643811214003___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643811214000-tableItem1643811214004___widget"
+      },
+      {
+        "id": "bs_short_term_provisions",
+        "label": "4. (a) Short-Term Provisions",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867878141-tableItem1643867878144___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867878141-tableItem1643867878145___widget"
+      },
+      {
+        "id": "bs_trade_payables",
+        "label": "4. (b) Trade Payables (Others)",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320436___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1720503320433-tableItem1720503320437___widget"
+      },
+      {
+        "id": "bs_other_current_liabilities",
+        "label": "4. (c) Other Current Liabilities",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867870853-tableItem1643867870856___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643867870853-tableItem1643867870857___widget"
+      },
+      {
+        "id": "bs_tangible_assets",
+        "label": "1. (a)(i) Property, Plant & Equipment (Tangible Assets)",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054338___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869054335-tableItem1643869054339___widget"
+      },
+      {
+        "id": "bs_deferred_tax_assets",
+        "label": "1. (c) Deferred Tax Assets (Net)",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869089142-tableItem1643869089145___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869089142-tableItem1643869089146___widget"
+      },
+      {
+        "id": "bs_trade_receivables",
+        "label": "2. (c) Trade Receivables",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691136___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869691133-tableItem1643869691137___widget"
+      },
+      {
+        "id": "bs_cash_and_equivalents",
+        "label": "2. (d) Cash and Cash Equivalents",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700100___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869700097-tableItem1643869700101___widget"
+      },
+      {
+        "id": "bs_other_current_assets",
+        "label": "2. (f) Other Current Assets",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716979___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel3AOC4-panel_2074267803_cop_1947944060-panel_478261092_copy-table-Row1643869716976-tableItem1643869716980___widget"
+      }
+    ],
+    "partC_profitAndLoss": [
+      {
+        "id": "pl_revenue_operations",
+        "label": "I. Revenue from Operations",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644085541248-tableItem1644085541251___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644085541248-tableItem1644085541252___widget"
+      },
+      {
+        "id": "pl_other_income",
+        "label": "II. Other Income",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644086710219-tableItem1644086710222___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644086710219-tableItem1644086710223___widget"
+      },
+      {
+        "id": "pl_employee_expenses",
+        "label": "IV. (a) Employee Benefit Expenses",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644088984591-tableItem1644088984594___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644088984591-tableItem1644088984595___widget"
+      },
+      {
+        "id": "pl_depreciation",
+        "label": "IV. (b) Depreciation & Amortization",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089025195-tableItem1644089025199___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089025195-tableItem1644089025200___widget"
+      },
+      {
+        "id": "pl_other_expenses",
+        "label": "IV. (c) Other Expenses / Administrative",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089032938-tableItem1644089032941___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_1650120016-panel-table-Row1644089032938-tableItem1644089032942___widget"
+      },
+      {
+        "id": "pl_profit_after_tax",
+        "label": "VII. Profit / (Loss) for the Year",
+        "currentReportingPeriod": "0",
+        "previousReportingPeriod": "0",
+        "currentSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_2074267803_cop_1303867623-panel_478261092_copy-table-Row1643870663481-tableItem1643870663484___widget",
+        "previousSelector": "#guideContainer-rootPanel-panel-panel-panel6AOC4-panel_2074267803_cop_1303867623-panel_478261092_copy-table-Row1643870663481-tableItem1643870663485___widget"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "fb_1790501882398",
+    "timestamp": "2026-09-27T09:38:02.398Z",
+    "cin": "U72900KA2020PTC123456",
+    "professionalText": "Swap current and previous reporting period columns",
+    "category": "Column Reversal",
+    "status": "applied",
+    "actionSummary": "Swapped Current and Previous reporting period columns across all Balance Sheet & P&L schedules",
+    "affectedFields": [
+      "All Part B & Part C columns"
+    ],
+    "reconciliationDiff": {
+      "totalAssets": 1112326,
+      "totalLiabilities": 1112326,
+      "variance": 0
+    }
+  }
+]

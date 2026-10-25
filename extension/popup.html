@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCA AOC-4 Auto-Filler</title>
+  <style>
+    body {
+      width: 340px;
+      margin: 0;
+      padding: 16px;
+      background: #090d16;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-sizing: border-box;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge {
+      background: #0284c7;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+    .source-section {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+    .source-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .source-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+      font-size: 11px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+      color: #fff;
+    }
+    .company-card {
+      background: #131c31;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 14px;
+      font-size: 11px;
+    }
+    .company-name {
+      font-weight: 700;
+      color: #f8fafc;
+      margin-bottom: 4px;
+      line-height: 1.3;
+      word-break: break-word;
+    }
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      color: #94a3b8;
+      font-size: 10.5px;
+      margin-top: 3px;
+    }
+    .cin {
+      color: #38bdf8;
+      font-family: monospace;
+      font-weight: 600;
+    }
+    .stats-badge {
+      display: inline-block;
+      background: #0369a1;
+      color: #e0f2fe;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 10px;
+      margin-top: 5px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    button.action-btn {
+      border: none;
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: opacity 0.2s;
+    }
+    button.action-btn:hover {
+      opacity: 0.9;
+    }
+    .btn-sec1 { background: #2563eb; color: #fff; }
+    .btn-sec2 { background: #0284c7; color: #fff; }
+    .btn-sec3 { background: #0d9488; color: #fff; }
+    .btn-all { background: #16a34a; color: #fff; font-weight: 700; justify-content: center; }
+    .btn-save { background: #334155; color: #f8fafc; border: 1px solid #475569; justify-content: center; }
+    .status-box {
+      margin-top: 12px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      background: #020617;
+      border: 1px solid #1e293b;
+      min-height: 24px;
+      display: none;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .footer {
+      margin-top: 12px;
+      font-size: 10px;
+      color: #64748b;
+      text-align: center;
+      border-top: 1px solid #1e293b;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer a {
+      color: #38bdf8;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">
+      <span>⚡ MCA AOC-4 Auto-Filler</span>
+    </div>
+    <span class="badge" id="source-badge">Preset</span>
+  </div>
+
+  <!-- Choose Client Workspace / Data Source -->
+  <div class="source-section">
+    <div class="source-title">
+      <span>🏢 Client Workspace</span>
+      <span id="file-name-label" style="font-weight: 400; text-transform: none; color: #38bdf8;">Loading...</span>
+    </div>
+    <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+      <select id="client-select" style="flex: 1; background: #0b1120; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 6px 8px; font-size: 11px; outline: none;">
+        <option value="">Select Client Workspace...</option>
+      </select>
+      <button class="btn-secondary" id="btn-sync-app" title="Sync mappings from FormMind backend" style="white-space: nowrap; padding: 6px 10px;">
+        🔄 Sync
+      </button>
+    </div>
+    <div class="source-buttons">
+      <button class="btn-secondary" id="btn-upload-file" style="grid-column: span 2;">
+        📂 Upload Custom File (.xlsx / .json)
+      </button>
+    </div>
+    <input type="file" id="file-input" accept=".json,.xlsx,.xls" style="display: none;" />
+  </div>
+
+  <!-- Statutory Filing Protection Toggle -->
+  <div style="background: #0f1c3f; border: 1px solid #1d4ed8; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;">
+    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 11.5px; font-weight: 600; color: #93c5fd;">
+      <input type="checkbox" id="chk-protect-prev-year" checked style="accent-color: #38bdf8; width: 15px; height: 15px; cursor: pointer;" />
+      <span>🛡️ Protect MCA Pre-Populated Data</span>
+    </label>
+    <div style="font-size: 10px; color: #94a3b8; margin-top: 5px; line-height: 1.35;">
+      Prevents overwriting previous year figures and company master data auto-populated by MCA portal.
+    </div>
+  </div>
+
+  <!-- Active Company Card -->
+  <div class="company-card">
+    <div class="company-name" id="card-company-name">No Client Selected</div>
+    <div class="meta-row">
+      <span>CIN: <span class="cin" id="card-cin">---</span></span>
+      <span id="card-fy">FY 2025-26</span>
+    </div>
+    <div class="stats-badge" id="card-stats">
+      Balance Sheet & P&L Ready
+    </div>
+  </div>
+
+  <!-- Form Fill Actions -->
+  <div class="btn-group">
+    <button class="action-btn btn-sec1" id="btn-popup-sec1">
+      <span>1. Fill Section 1 (Part A)</span>
+      <span>👉</span>
+    </button>
+    <button class="action-btn btn-sec2" id="btn-popup-sec2">
+      <span>2. Fill Section 2 (Balance Sheet)</span>
+      <span>👉</span>
+    </button>
+    <button class="action-btn btn-sec3" id="btn-popup-sec3">
+      <span>3. Fill Section 3 (Profit & Loss)</span>
+      <span>👉</span>
+    </button>
+    <button class="action-btn btn-all" id="btn-popup-all">
+      🚀 One-Click Fill All Sections
+    </button>
+    <button class="action-btn btn-save" id="btn-popup-save">
+      💾 Trigger Global Save Draft
+    </button>
+  </div>
+
+  <div class="status-box" id="popup-status"></div>
+
+  <div class="footer">
+    <span>100% In-Browser Human Context</span>
+    <a id="btn-reset-default">Reset to Default</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

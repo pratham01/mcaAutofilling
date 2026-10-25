@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.tools/
+
+# Production build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+runner_err.log
+
+# Environment & credentials
+.env
+.env.*
+!.env.example
+
+# Browser automation user data, profiles, and cached sessions (protects private cookies & reduces repo size)
+**/playwright_user_data/
+**/mca_chrome_user_data/
+**/mca-chrome-profile/
+**/Cache/
+**/Code Cache/
+*.pma
+data/mca_session_state.json
+data/screenshots/
+data/uploads/
+
+# Captured media & screenshots
+data/*.png
+scratch/*.png
+scratch/*.jpg
+scratch/*.jpeg
+
+# IDE & OS generated files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

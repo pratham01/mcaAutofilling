@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "MCA AOC-4 Form Auto-Filler",
+  "version": "1.0.0",
+  "description": "Autonomous one-click form filling for MCA V3 Form AOC-4 directly within the active browser tab with AEM GuideBridge State Binding.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.mca.gov.in/*",
+    "http://localhost:3001/*",
+    "http://localhost:*/*",
+    "http://127.0.0.1:*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MCA AOC-4 Auto-Filler"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.mca.gov.in/*",
+        "http://localhost:*/*",
+        "http://127.0.0.1:*/*"
+      ],
+      "js": [
+        "pageBridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://www.mca.gov.in/*",
+        "http://localhost:*/*",
+        "http://127.0.0.1:*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "pageBridge.js"
+      ],
+      "matches": [
+        "https://www.mca.gov.in/*",
+        "http://localhost:*/*",
+        "http://127.0.0.1:*/*"
+      ]
+    }
+  ]
+}

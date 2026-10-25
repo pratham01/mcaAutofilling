@@ -1,0 +1,256 @@
+{
+  "rules": [
+    {
+      "domain": "mock-target",
+      "sourceKey": "firstName",
+      "targetSelector": "#firstName",
+      "targetName": "firstName",
+      "frequency": 5,
+      "confidence": 0.98,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "lastName",
+      "targetSelector": "#lastName",
+      "targetName": "lastName",
+      "frequency": 5,
+      "confidence": 0.98,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "email",
+      "targetSelector": "#email",
+      "targetName": "email",
+      "frequency": 5,
+      "confidence": 0.99,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "phone",
+      "targetSelector": "#phone",
+      "targetName": "phone",
+      "frequency": 4,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "streetAddress",
+      "targetSelector": "#streetAddress",
+      "targetName": "streetAddress",
+      "frequency": 4,
+      "confidence": 0.96,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "city",
+      "targetSelector": "#city",
+      "targetName": "city",
+      "frequency": 4,
+      "confidence": 0.96,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "state",
+      "targetSelector": "#state",
+      "targetName": "state",
+      "frequency": 4,
+      "confidence": 0.96,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "mock-target",
+      "sourceKey": "zipCode",
+      "targetSelector": "#zipCode",
+      "targetName": "zipCode",
+      "frequency": 4,
+      "confidence": 0.96,
+      "lastUsed": "2026-09-01T18:00:00.000Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "firstName",
+      "targetSelector": "#firstName",
+      "targetName": "First Name",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.059Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "lastName",
+      "targetSelector": "#lastName",
+      "targetName": "Last Name",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.060Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "email",
+      "targetSelector": "#email",
+      "targetName": "Email Address",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.060Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "phone",
+      "targetSelector": "#phone",
+      "targetName": "Phone / Mobile",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.060Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "dateOfBirth",
+      "targetSelector": "#dateOfBirth",
+      "targetName": "Date of Birth",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.061Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "highestEducation",
+      "targetSelector": "#highestEducation",
+      "targetName": "Highest Level of Education",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.061Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "streetAddress",
+      "targetSelector": "#streetAddress",
+      "targetName": "Street Address",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.061Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "city",
+      "targetSelector": "#city",
+      "targetName": "City",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.062Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "state",
+      "targetSelector": "#state",
+      "targetName": "State / Province",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.062Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "zipCode",
+      "targetSelector": "#zipCode",
+      "targetName": "Zip / Postal Code",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.062Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "country",
+      "targetSelector": "#country",
+      "targetName": "Country",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.062Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "jobRole",
+      "targetSelector": "#jobRole",
+      "targetName": "Target Job Role",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.063Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "yearsOfExperience",
+      "targetSelector": "#yearsOfExperience",
+      "targetName": "Years of Professional Experience",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.063Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "expectedSalary",
+      "targetSelector": "#expectedSalary",
+      "targetName": "Expected Annual Salary (USD)",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.063Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "availableStartDate",
+      "targetSelector": "#availableStartDate",
+      "targetName": "Earliest Available Start Date",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.063Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "linkedInProfile",
+      "targetSelector": "#linkedInProfile",
+      "targetName": "LinkedIn Profile URL",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.064Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "githubProfile",
+      "targetSelector": "#githubProfile",
+      "targetName": "GitHub Profile URL",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.064Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "preferredWorkMode",
+      "targetSelector": "input[name=\"preferredWorkMode\"][value=\"Onsite\"]",
+      "targetName": "Onsite",
+      "frequency": 6,
+      "confidence": 1,
+      "lastUsed": "2026-09-01T19:53:24.065Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "willingToRelocate",
+      "targetSelector": "#willingToRelocate",
+      "targetName": "Willing to relocate if required",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.065Z"
+    },
+    {
+      "domain": "localhost",
+      "sourceKey": "coverLetter",
+      "targetSelector": "#coverLetter",
+      "targetName": "Statement / Cover Note",
+      "frequency": 2,
+      "confidence": 0.95,
+      "lastUsed": "2026-09-01T19:53:24.065Z"
+    }
+  ]
+}

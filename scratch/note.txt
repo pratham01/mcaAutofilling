@@ -1,0 +1,6 @@
+const http = require('http');
+const fs = require('fs');
+
+// We can execute an evaluation via a temporary debug endpoint or directly inspect
+// Let's add a quick /api/aoc4/debug-eval endpoint in server/routes/api.ts or see if we can use inspect-dom
+// Wait! Let's check how inspect-dom is implemented in mcaBrowserAgent.ts.

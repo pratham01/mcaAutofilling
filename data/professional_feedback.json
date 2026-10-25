@@ -1,0 +1,82 @@
+[
+  {
+    "id": "fb_1790504911756",
+    "timestamp": "2026-09-27T10:28:31.756Z",
+    "cin": "U67100PB2021PTC053453",
+    "professionalText": "Last year figures are pre-filleed, ypou just need to fetch figures for 2025-26 in actual Rs and prefill",
+    "category": "Figure Correction",
+    "status": "noted",
+    "actionSummary": "Feedback logged & reviewed by autonomous adaptation engine. Mapping state verified for U67100PB2021PTC053453.",
+    "affectedFields": [],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  },
+  {
+    "id": "fb_1790503193227",
+    "timestamp": "2026-09-27T09:59:53.227Z",
+    "cin": "U67100PB2021PTC053453",
+    "professionalText": "none of the code is working can tou check",
+    "category": "Figure Correction",
+    "status": "noted",
+    "actionSummary": "Feedback logged & reviewed by autonomous adaptation engine. Mapping state verified for U67100PB2021PTC053453.",
+    "affectedFields": [],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  },
+  {
+    "id": "fb_1790501882398",
+    "timestamp": "2026-09-27T09:38:02.398Z",
+    "cin": "U72900KA2020PTC123456",
+    "professionalText": "Swap current and previous reporting period columns",
+    "category": "Column Reversal",
+    "status": "applied",
+    "actionSummary": "Swapped Current and Previous reporting period columns across all Balance Sheet & P&L schedules",
+    "affectedFields": [
+      "All Part B & Part C columns"
+    ],
+    "reconciliationDiff": {
+      "totalAssets": 1112326,
+      "totalLiabilities": 1112326,
+      "variance": 0
+    }
+  },
+  {
+    "id": "fb_1790484475136",
+    "timestamp": "2026-09-27T04:47:55.136Z",
+    "professionalText": "Previous reporting period trade payables should be 337 and short term provisions 346137. Actual AGM date is 20/09/2026",
+    "category": "Figure Correction",
+    "status": "applied",
+    "actionSummary": "Updated 4. (b)(ii) Trade Payables - Others (previousReportingPeriod): 337 → 337; Updated Actual AGM Date to: 20/09/2026",
+    "affectedFields": [
+      "4. (b)(ii) Trade Payables - Others",
+      "Actual AGM Date"
+    ],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  },
+  {
+    "id": "fb_1790484028561",
+    "timestamp": "2026-09-27T04:40:28.561Z",
+    "professionalText": "Test: Short term provisions should be 429462",
+    "category": "Figure Correction",
+    "status": "applied",
+    "actionSummary": "Updated 4. (d) Short-Term Provisions (currentReportingPeriod): 429462 → 429462",
+    "affectedFields": [
+      "4. (d) Short-Term Provisions"
+    ],
+    "reconciliationDiff": {
+      "totalAssets": 1470325,
+      "totalLiabilities": 1470325,
+      "variance": 0
+    }
+  }
+]
